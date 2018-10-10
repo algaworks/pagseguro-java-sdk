@@ -61,8 +61,11 @@ class TransactionSearchByNotification implements PagSeguroCommand<TransactionDet
       LOGGER.error("Erro ao executar busca de transacao por codigo de notificacao");
       throw new PagSeguroLibException(e);
     }
+
     LOGGER.info("Parseando XML de resposta");
-    TransactionDetail transaction = response.parseXMLContent(pagseguro, TransactionDetailXML.class);
+    TransactionDetailXML transaction = response.parseXMLContent(pagseguro, TransactionDetailXML.class);
+    transaction.setRawData(response.asString());
+
     LOGGER.info("Parseamento finalizado");
     LOGGER.info("Busca de transacao por codigo de notificacao finalizada");
     return transaction;

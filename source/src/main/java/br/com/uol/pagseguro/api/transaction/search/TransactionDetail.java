@@ -203,4 +203,6 @@ public interface TransactionDetail extends TransactionIdentify {
    */
   CreditorFee getCreditorFees();
 
+  String getRawData();
+
 }

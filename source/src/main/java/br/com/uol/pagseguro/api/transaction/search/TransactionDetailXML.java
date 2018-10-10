@@ -90,6 +90,8 @@ public class TransactionDetailXML implements TransactionDetail {
 
   private CreditorFeeXML creditorFees;
 
+  private String rawData;
+
   TransactionDetailXML() {
   }
 
@@ -326,6 +328,15 @@ public class TransactionDetailXML implements TransactionDetail {
   @XmlElement
   public void setCreditorFees(CreditorFeeXML creditorFees) {
     this.creditorFees = creditorFees;
+  }
+
+  public void setRawData(String rawData) {
+    this.rawData = rawData;
+  }
+
+  @Override
+  public String getRawData() {
+    return this.rawData;
   }
 
   @Override
