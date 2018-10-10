@@ -20,7 +20,9 @@
  */
 package br.com.uol.pagseguro.api.common.domain.xml;
 
+
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 
 import br.com.uol.pagseguro.api.common.domain.Document;
 import br.com.uol.pagseguro.api.common.domain.Sender;
@@ -119,7 +121,8 @@ public class SenderXML implements Sender {
     return documents;
   }
 
-  @XmlElement
+  @XmlElement(name = "document")
+  @XmlElementWrapper(name = "documents")
   public void setDocuments(List<DocumentXML> documents) {
     this.documents = documents;
   }
